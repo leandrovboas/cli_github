@@ -1,0 +1,34 @@
+{
+  "name": "github",
+  "version": "1.0.0",
+  "description": "Criação de um cli para interagir com o github via linha de comando",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandrovboas/cli_github.git"
+  },
+  "keywords": [
+    "Github"
+  ],
+  "author": {
+    "name": "Leandro Vilas Boas",
+    "email": "leandrovboas@msn.com",
+    "url": "https://medium.com/@leandrovboas"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leandrovboas/cli_github/issues"
+  },
+  "homepage": "https://github.com/leandrovboas/cli_github#readme",
+  "bin": {
+    "github": "bin/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chalk": "^2.4.2",
+    "commander": "^3.0.1"
+  }
+}
