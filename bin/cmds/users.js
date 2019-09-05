@@ -1,20 +1,26 @@
 const axios = require('axios')
 const chalk = require('chalk')
+const userServe = require('../../src/github/userServer')
 
 module.exports = async (userName, repos) => {
-const response = await axios.get(`https://api.github.com/users/${userName}`)
-        const {name, bio, company, repos_url} = response.data
+    try {
+        const userInfo = await userServe.GetInfoUsers(userName)
         console.log(`
-        ${chalk.blue('Nome')} - ${name}
-        ${chalk.blue('Empresa')} - ${company == null ? 'Não informado' : company}
-        ${chalk.blue('Bio')} - ${bio == null ? 'Não informado' : bio}
+        ${chalk.blue('Nome')} - ${userInfo.name}
+        ${chalk.blue('Empresa')} - ${userInfo.company == null ? 'Não informado' : company}
+        ${chalk.blue('Bio')} - ${userInfo.bio == null ? 'Não informado' : bio}
         `); 
 
         if(repos != null){
             console.log(`
         ${chalk.yellow('Nome dos Repositórios')}`)
-            await getRepos(repos_url)
+            await getRepos(userInfo.repos_url)
         }
+    }catch(error)
+    {
+        console.error(`Gerou um erro interno`);
+    }
+    
 }
 
 async function getRepos(repos) {
