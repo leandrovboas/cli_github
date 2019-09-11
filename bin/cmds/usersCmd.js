@@ -17,7 +17,6 @@ module.exports = async (userName, optionRepos, optionJson) => {
             userInfo.repos = listRepos
             console.log(JSON.stringify(userInfo))
         }else{
-            console.log(JSON.stringify(userInfo))
             await userView.ExibirInfoUser(userInfo)
             await reposView.ExibirRepos(listRepos)
         }
