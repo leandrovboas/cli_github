@@ -1,4 +1,5 @@
 const axios = require('axios')
+const URL_BASE = 'https://api.github.com/repos'
 
 async function GetRepos(repos_url) {
     let response,
@@ -8,13 +9,23 @@ async function GetRepos(repos_url) {
     do {
         response = await axios.get(`${repos_url}?page=${count}`)
         count++
-        result.push(response.data);
+        result = result.concat(response.data);
     }
     while (response.data.length != 0)
-console.log(JSON.stringify(result))
+
     return result.map(({ name, clone_url }) => ({ name, clone_url }))
 }
 
+async function GetRepo(userName, repoName){
+    let response = await axios.get(`${URL_BASE}/${userName}/${repoName}`)
+    const {name, clone_url} = response.data
+    return {
+        name,
+        clone_url,
+    }
+}
+
 module.exports = {
-    GetRepos
+    GetRepos,
+    GetRepo
 }

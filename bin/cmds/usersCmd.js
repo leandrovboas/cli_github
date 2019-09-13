@@ -4,8 +4,8 @@ const reposService = require('../../src/services/reposService')
 const reposView = require('../../src/view/reposView')
 
 module.exports = async (userName, optionRepos, optionJson) => {
-    let userInfo;
-    let listRepos;
+    let userInfo,
+        listRepos
     try {
         userInfo = await userServe.GetInfoUsers(userName)
 
