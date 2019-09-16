@@ -10,10 +10,11 @@ module.exports = async (userName, repoName, optionPath) => {
 
     let repo = await reposService.GetRepo(userName, repoName)
 
-    if(optionPath !== null){
+    if(optionPath !== undefined){
         shell.cd(optionPath)
     }
 
+    shell.ls()
     if (shell.exec(`git clone ${repo.clone_url}`).code === 0) {
         shell.echo(`Repositório ${repo.name} Clonado com sucesso`)
     }else{
