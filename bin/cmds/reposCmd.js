@@ -6,6 +6,6 @@ module.exports = async (userName, optionJson) => {
     var userInfos = await userService.GetInfoUsers(userName)
     var repos = await reposService.GetRepos(userInfos.repos_url)
 
-    if(optionJson != null){ console.log(JSON.stringify(repos))}
+    if(optionJson != null) { console.log(JSON.stringify(repos))}
     else{repoView.ExibirRepos(repos)}
 }

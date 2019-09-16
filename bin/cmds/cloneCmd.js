@@ -21,5 +21,4 @@ module.exports = async (userName, repoName, optionPath) => {
         shell.echo('Error: Git clone falhou');
         shell.exit(1);
     }
-
 }

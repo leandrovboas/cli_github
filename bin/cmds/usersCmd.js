@@ -12,7 +12,7 @@ module.exports = async (userName, optionRepos, optionJson) => {
         if (optionRepos != null) {
             listRepos = await reposService.GetRepos(userInfo.repos_url)
         }
-        
+
         if(optionJson != null){
             userInfo.repos = listRepos
             console.log(JSON.stringify(userInfo))
@@ -20,7 +20,6 @@ module.exports = async (userName, optionRepos, optionJson) => {
             await userView.ExibirInfoUser(userInfo)
             await reposView.ExibirRepos(listRepos)
         }
-
     }catch(error)
     {
         console.error(`Gerou um erro interno`);
