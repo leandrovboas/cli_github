@@ -1,4 +1,4 @@
-# cli_github
+# Command Line Interface Github
 Command Line Interface que utiliza a api do github para facilitar clonar repositórios direto pelo terminal.
 
 Essa CLI foi criada com o intuito de facilitar o modo de realizar o git clone sem a necessidade de ir ate o navegador e ter que procurar qual o nome do repositório que quero clonar.
@@ -20,7 +20,7 @@ npm install github
 
 #### Download do código fonte
 
-O código es disponível no GItHub para quem tiver interesse em dar uma olhada, ou quem quiser contribuir com Issus e PR
+O código es disponível no GItHub para quem tiver interesse em dar uma olhada, ou quem quiser contribuir com Issues e PR
 
 Usando o Git
 ```bash
