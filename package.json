@@ -4,7 +4,9 @@
   "description": "Criação de um cli para interagir com o github via linha de comando",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testWatch":  "jest --watchAll",
+    "test:debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i"
   },
   "repository": {
     "type": "git",

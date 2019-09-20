@@ -19,10 +19,12 @@ async function GetRepos(repos_url) {
 
 async function GetRepo(userName, repoName){
     let response = await get(`${URL_BASE}/${userName}/${repoName}`)
-    const { name, clone_url} = response.data
+    const { name, clone_url, description, html_url } = response.data
     return {
         name,
         clone_url,
+        description,
+        html_url
     }
 }
 
