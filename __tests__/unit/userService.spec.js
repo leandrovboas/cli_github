@@ -1,15 +1,11 @@
-const { GetInfoUsers } = require('./userServer')
+const { GetInfoUsers } = require('../../src/services/userServer')
 const { get } = require('axios')
+const { InfoUser } = require('../utils/factories')
 
 jest.mock('axios')
 
 describe('Busca informações do usuário na api do github', () => {
-    const USER_INFO = {
-        "name": "Leandro Vilas Boas",
-        "bio": "MCSD MS MCTS MTA MCPS — Atuo no desenvolvimento de software BackEnd com .Net e .NetCore com FrontEnd em angular e outros frameworks e muito teste.",
-        "company": "Lambda3",
-        "repos_url": "https://api.github.com/users/leandrovboas/repos"
-    }
+    const USER_INFO = InfoUser
 
     beforeEach(() => {
         get.mockResolvedValue({data : USER_INFO})
