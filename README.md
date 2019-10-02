@@ -20,7 +20,9 @@ npm install github
 
 #### Download do código fonte
 
-O código es disponível no GItHub para quem tiver interesse em dar uma olhada, ou quem quiser contribuir com Issues e PR
+
+O código esta disponível no GItHub para quem tiver interesse em dar uma olhada, ou quem quiser contribuir com Issues e PR
+
 
 Usando o Git
 ```bash

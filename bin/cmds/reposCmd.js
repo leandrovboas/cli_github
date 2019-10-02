@@ -4,7 +4,7 @@ const reposView = require('../../src/view/reposView.js')
 
 async function GetInfoRepo(userName, repopsitory, optionJson){
     var repos = await Repos.GetRepo(userName, repopsitory)
-
+    
     if (optionJson !== undefined) { console.log(JSON.stringify(repos)) }
     else { reposView.ExibirInfoRepo(repos) }
 }
