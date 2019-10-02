@@ -22,7 +22,7 @@ module.exports = async (userName, optionRepos, optionJson) => {
         }
     }catch(error)
     {
-        console.error(`Gerou um erro interno`);
+        console.error('Gerou um erro interno');
         console.log(error)
     }
 }
