@@ -4,7 +4,8 @@
   "description": "Criação de um cli para interagir com o github via linha de comando",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest",
+    "testWatch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,8 @@
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.18.2",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0"
   }
 }

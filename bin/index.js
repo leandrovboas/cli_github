@@ -20,11 +20,11 @@ program
 });
 
 program
-.command('repos <userName>')
+.command('repos <userName> [repository]')
 .description('Busca os repopsitórios do usuario na api do github')
 .option('-j, --json [json]', 'Retorna as informações solicitadas no formato json')
-.action((userName, option) => {
-    repos(userName, option.json)  
+.action((userName, repository, option) => {
+    repos(userName, repository, option.json)  
 });
 
 program

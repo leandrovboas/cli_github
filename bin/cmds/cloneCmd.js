@@ -1,6 +1,6 @@
 const shell = require('shelljs');
 
-const reposService = require('../../src/services/reposService')
+const { GetRepo } = require('../../src/services/reposService')
 
 module.exports = async (userName, repoName, optionPath) => {
     if (!shell.which('git')) {
@@ -8,7 +8,7 @@ module.exports = async (userName, repoName, optionPath) => {
         shell.exit(1);
     }
 
-    let repo = await reposService.GetRepo(userName, repoName)
+    let repo = await GetRepo(userName, repoName)
 
     if(optionPath !== undefined){
         if(!shell.test('-e', optionPath)) {
