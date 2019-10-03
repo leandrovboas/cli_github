@@ -42,13 +42,13 @@ describe('Busca informações do repositório na api do github', () => {
 })
 
 describe('Verificar a condição do json', () => {
-    test('Deve verificar se o metodo GetInfoUsers foi chamado', async () => { 
+    test('Deve verificar se o metodo stringify foi chamado', async () => { 
         const spy = jest.spyOn(JSON, 'stringify'); 
         await userCmd('leandrovboas', undefined, true)
         expect(spy).toHaveBeenCalled();
     })
 
-    test('Deve verificar se o metodo GetInfoUsers foi chamado', async () => {  
+    test('Deve verificar se o metodo stringify nao foi chamado', async () => {  
         const spy = jest.spyOn(JSON, 'stringify'); 
         await userCmd('leandrovboas', undefined, undefined)
         expect(spy).not.toHaveBeenCalled();
