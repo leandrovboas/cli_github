@@ -1,11 +1,12 @@
 const shell = require('shelljs');
-
+const reposService = require('../../src/services/reposService.js')
 const { GetRepo } = require('../../src/services/reposService')
 
 module.exports = async (userName, repoName, optionPath) => {
     if (!shell.which('git')) {
         shell.echo('Desculpe, mas esse script requer o git instalado');
         shell.exit(1);
+        return
     }
 
     let repo = await GetRepo(userName, repoName)

@@ -15,5 +15,13 @@ describe('Busca informações do usuário na api do github', () => {
         const expected = USER_INFO
         const data = await GetInfoUsers('leandro');
         expect(expected).toMatchObject(data);
-    });
+    })
+
+    test('Deve verificar se o metodo console.error foi chamado', async () => {  
+        const spy = jest.spyOn(console, 'error'); 
+        get.mockReturnValue(Promise.reject())
+        await GetInfoUsers('leandro');
+        expect(spy).toHaveBeenCalled();
+        spy.mockRestore();
+    })
 });

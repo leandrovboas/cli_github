@@ -2,8 +2,6 @@ const { get } = require('axios')
 
 const URL_BASE = 'https://api.github.com/repos'
 
-const URL_BASE = 'https://api.github.com/repos'
-
 async function GetRepos(repos_url) {
     let response,
         result = [],
