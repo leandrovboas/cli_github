@@ -1,10 +1,13 @@
 const userServer = require('../../src/services/userServer.js')
 const reposService = require('../../src/services/reposService.js')
 const reposCmd = require('../../bin/cmds/reposCmd')
+const { ExibirJson } = require('../../src/view/jsonView')
 const factory = require('../utils/factories')
 
 jest.mock('../../src/services/userServer')
 jest.mock('../../src/services/reposService')
+jest.mock('../../src/view/reposView.js')
+jest.mock('../../src/view/jsonView.js')
 
 const USER_INFO = factory.InfoUser
 const LIST_REPOS = factory.ListRepos
@@ -17,6 +20,11 @@ beforeEach(() => {
 });
 
 describe('Busca informações dos repositórios na api do github usando o método GetListRepos', () => {
+    test('Deve verificar se o metodo GetRepo foi chamado', async () => {  
+        await reposCmd('leandrovboas', undefined, undefined)
+        expect(reposService.GetRepos).toHaveBeenCalled()
+    })
+
     test('Deve verificar se o metodo GetInfoUsers foi chamado', async () => {  
         await reposCmd('leandrovboas', undefined, undefined)
         expect(userServer.GetInfoUsers).toHaveBeenCalled()
@@ -24,24 +32,7 @@ describe('Busca informações dos repositórios na api do github usando o métod
 
     test('Deve verificar se o metodo GetRepo foi chamado', async () => {  
         await reposCmd('leandrovboas', undefined, undefined)
-        expect(reposService.GetRepos).toHaveBeenCalled()
-    })
-
-    test('Deve verificar se o metodo GetRepo foi chamado', async () => {  
-        await reposCmd('leandrovboas', undefined, undefined)
         expect(reposService.GetRepo).not.toHaveBeenCalled()
-    })
-
-    //test('Deve verificar se o metodo stringify foi chamado', async () => { 
-    //    const spy = jest.spyOn(JSON, 'stringify'); 
-    //    await reposCmd('leandrovboas', undefined, true)
-    //    expect(spy).toHaveBeenCalled();
-    //})
-
-    test('Deve verificar se o metodo stringify nao foi chamado', async () => {  
-        const spy = jest.spyOn(JSON, 'stringify'); 
-        await reposCmd('leandrovboas', undefined, undefined)
-        expect(spy).not.toHaveBeenCalled();
     })
 
 })
@@ -62,16 +53,26 @@ describe('Busca informações dos repositórios na api do github usando o métod
         expect(reposService.GetRepo).toHaveBeenCalled()
     })
 
-    //test('Deve verificar se o metodo stringify foi chamado', async () => { 
-    //    const spy = jest.spyOn(JSON, 'stringify'); 
+})
+
+describe('Verificar a condição do json', () => {
+    test('Deve verificar se o metodo ExibirJson nao foi chamado', async () => {  
+        await reposCmd('leandrovboas', undefined, undefined)
+        expect(ExibirJson).not.toHaveBeenCalled()
+    })
+TODO:
+    //test('Deve verificar se o metodo ExibirJson foi chamado', async () => { 
     //    await reposCmd('leandrovboas', undefined, true)
-    //    expect(spy).toHaveBeenCalled();
+    //    expect(ExibirJson).toHaveBeenCalled()
     //})
 
-    test('Deve verificar se o metodo stringify nao foi chamado', async () => {  
-        const spy = jest.spyOn(JSON, 'stringify'); 
-        await reposCmd('leandrovboas', 'teste', undefined)
-        expect(spy).not.toHaveBeenCalled();
+    test('Deve verificar se o metodo ExibirJson nao foi chamado com repositório true', async () => {  
+        await reposCmd('leandrovboas', true, undefined)
+        expect(ExibirJson).not.toHaveBeenCalled()
     })
 
+    test('Deve verificar se o metodo ExibirJson foi chamado Com repositório true', async () => { 
+        await reposCmd('leandrovboas', true, true)
+        expect(ExibirJson).toHaveBeenCalled()
+    })
 })
