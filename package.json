@@ -1,5 +1,5 @@
 {
-  "name": "leandrovboas-github",
+  "name": "leandrovboas",
   "version": "1.0.0",
   "description": "Criação de um cli para interagir com o github via linha de comando",
   "main": "index.js",
