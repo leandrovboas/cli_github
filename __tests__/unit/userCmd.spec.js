@@ -13,7 +13,7 @@ jest.mock('../../src/view/jsonView.js')
 const USER_INFO = factory.InfoUser
 const LIST_REPOS = factory.ListRepos
 
-beforeEach(() => {
+beforeAll(() => {
     userServer.GetInfoUsers.mockReturnValue(Promise.resolve(USER_INFO))
     reposService.GetRepos.mockReturnValue(Promise.resolve(LIST_REPOS))
 });
@@ -23,7 +23,7 @@ describe('Busca informações do usuário na api do github', () => {
         await userCmd('leandrovboas', undefined, undefined)
         expect(userServer.GetInfoUsers).toHaveBeenCalled()
     })
-
+  
     test('Deve verificar se o metodo console.error foi chamado', async () => {  
         const spy = jest.spyOn(console, 'error'); 
         userServer.GetInfoUsers.mockReturnValue(Promise.reject())
@@ -47,6 +47,7 @@ describe('Busca informações do repositório na api do github', () => {
 })
 
 describe('Verificar a condição do json', () => {
+
     test('Deve verificar se o metodo ExibirJson foi chamado', async () => { 
         await userCmd('leandrovboas', undefined, true)
         expect(ExibirJson).toHaveBeenCalled()
@@ -67,3 +68,4 @@ describe('Verificar a condição do json', () => {
         expect(ExibirJson).toHaveBeenCalled()
     })
 }) 
+
