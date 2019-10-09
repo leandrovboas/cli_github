@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://registry.npmjs.org/
+          registry-url: https://registry.npmjs.org/leandrovboas
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
