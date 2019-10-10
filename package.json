@@ -1,6 +1,6 @@
 {
   "name": "@leandrovboas/cli_github",
-  "version": "1.0.2",
+"version": "1.0.3",
   "description": "Criação de um cli para interagir com o github via linha de comando",
   "main": "index.js",
   "scripts": {
