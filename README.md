@@ -9,13 +9,13 @@ Para executar o comando não precisa instalar o pacote, basta digitar:
 
 ```bash
 npx github -h
-EX:. npx github user leandrovboas
+EX:. npx @leandrovboas/cli_github user leandrovboas
 ```
 
 Para instalar basta executar:
 
 ```bash
-npm install github
+npm install @leandrovboas/cli_github
 ```
 
 #### Download do código fonte
@@ -31,7 +31,7 @@ git clone https://github.com/leandrovboas/cli_github.git
 
 Usando a propria CLI
 ```bash
-npx github clone leandrovboas cli_github --path=CAMINHO_ONDE_SERA_CLONADO
+npx @leandrovboas/cli_github clone leandrovboas cli_github --path=CAMINHO_ONDE_SERA_CLONADO
 ```
 Pelo navegador
 https://github.com/leandrovboas/cli_github/archive/master.zip

@@ -14,7 +14,10 @@
     "url": "git+https://github.com/leandrovboas/cli_github.git"
   },
   "keywords": [
-    "Github"
+    "Github",
+    "Git Clone",
+    "Git",
+    "Git User"
   ],
   "author": {
     "name": "Leandro Vilas Boas",
