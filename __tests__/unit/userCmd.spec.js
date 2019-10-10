@@ -13,7 +13,7 @@ jest.mock('../../src/view/jsonView.js')
 const USER_INFO = factory.InfoUser
 const LIST_REPOS = factory.ListRepos
 
-beforeAll(() => {
+beforeEach(() => {
     userServer.GetInfoUsers.mockReturnValue(Promise.resolve(USER_INFO))
     reposService.GetRepos.mockReturnValue(Promise.resolve(LIST_REPOS))
 });
